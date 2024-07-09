@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin" />
+    <meta http-equiv="Cross-Origin-Embedder-Policy" content="require-corp" />
+    <meta http-equiv="Cross-Origin-Resource-Policy" content="same-site" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="gaussian-splats-3d.js"></script>
+    <title>Vite App</title>
+  </head>
+
+  <body>
+    <label class="room" for="roomSelect">Select a Room:</label>
+    <select id="roomSelect" name="roomSelect">
+      <option value="room0">Room0</option>
+      <option value="room1">Room1</option>
+      <option value="room2">Room2</option>
+      <option value="room3">Room3</option>
+      <option value="room4">Room4</option>
+      <option value="room5">Room5</option>
+      <option value="room6">Room6</option>
+      <option value="room7">Room7</option>
+      <option value="room8">Room1</option>
+      <option value="room9">Room2</option>
+    </select>
+    <div class="control-container">
+      <button class="control-button">🔁</button>
+      <button class="control-button ctrl-moveU">▲</button>
+      <button class="control-button ctrl-moveD">▼</button>
+      <button class="control-button ctrl-rotateR">↺</button>
+      <button class="control-button ctrl-rotateR">↻</button>
+      <button class="control-button toggle-control-button">+</button>
+    </div>
+    <div id="joystick-container">
+      <div id="joystick"></div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
