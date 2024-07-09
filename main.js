@@ -58,7 +58,7 @@ const current = {
 };
 
 let controlsOpen = false;
-// let cameraUp = new THREE.Vector3();
+
 let cameraUp = new THREE.Vector3();
 
 const controlButtons = document.querySelectorAll('.control-button');
@@ -96,22 +96,15 @@ function verticalCtrl(side) {
     }
 }
 
+let cameraPos = [0.16875, 3.29878, -0.9287];
 
-
-let cameraPos = [
-    0.16875, 3.29878, -0.92870
-]
-
-let controlsTarget = [
-    0.16875, 3.29878, -0.92871
-]
-
+let controlsTarget = [0.16875, 3.29878, -0.92871];
 
 function resetPosition() {
     if (current.room === 0) {
-        viewer.camera.position.set(-.64963, 4.70684, -2.33749);
-        viewer.controls.target.set(-.64963, 3.29878, -0.92871);
-        viewer.camera.rotation.set(12, -22, 30)
+        viewer.camera.position.set(-0.64963, 4.70684, -2.33749);
+        viewer.controls.target.set(-0.64963, 3.29878, -0.92871);
+        viewer.camera.rotation.set(12, -22, 30);
     } else {
         viewer.camera.position.set(0.5, 0, 0);
         viewer.controls.target.set(0.16875, 3.29878, -0.92871);
@@ -159,7 +152,6 @@ let viewer = new Viewer({
     gpuAcceleratedSort: true,
     enableSIMDInSort: true,
     // useBuiltInControls: false
-
 });
 
 viewer
@@ -167,7 +159,7 @@ viewer
         splatAlphaRemovalThreshold: 20,
         showLoadingUI: true,
         position: [0, 0, 0],
-        rotation: [0, 0.080, -0.01, .65],
+        rotation: [0, 0.08, -0.01, 0.65],
         scale: [1.5, 1.5, 1.5],
         progressiveLoad: true,
     })
@@ -210,22 +202,12 @@ function onLoad(n) {
     viewer.controls.enableZoom = false;
     // viewer.controls.stopListenToKeyEvents();
 
-
-
     viewer.camera.fov = 60;
     cameraUp.set(viewer.camera.up.x, viewer.camera.up.y, viewer.camera.up.z);
 
-    viewer.camera.position.set(-.64963, 4.70684, -2.33749);
-    viewer.controls.target.set(-.64963, 3.29878, -0.92871);
-
-
+    viewer.camera.position.set(-0.64963, 4.70684, -2.33749);
+    viewer.controls.target.set(-0.64963, 3.29878, -0.92871);
 }
-
-
-
-
-
-
 
 //Camera control
 let joySensX = 1;
@@ -257,17 +239,12 @@ function moveCamera() {
             movement.addScaledVector(right, moveDistance * joySensX);
         }
 
-        movement.x = 0 // making the x value fixed
+        movement.x = 0; // making the x value fixed
         const newPosition = currentPosition.clone().add(movement);
-
 
         viewer.camera.position.copy(newPosition);
 
-
         viewer.controls.target.add(movement);
-
-
-
     }
     requestAnimationFrame(moveCamera);
 }
@@ -275,23 +252,18 @@ function moveCamera() {
 moveCamera();
 //KeyPressing
 
-
 document.addEventListener('keydown', (event) => {
     switch (event.code) {
         case 'ArrowUp':
-
             keysPressed.forward = true;
             break;
         case 'ArrowDown':
-
             keysPressed.backward = true;
             break;
         case 'ArrowLeft':
-
             keysPressed.left = true;
             break;
         case 'ArrowRight':
-
             keysPressed.right = true;
             break;
     }
@@ -300,19 +272,15 @@ document.addEventListener('keydown', (event) => {
 document.addEventListener('keyup', (event) => {
     switch (event.code) {
         case 'ArrowUp':
-
             keysPressed.forward = false;
             break;
         case 'ArrowDown':
-
             keysPressed.backward = false;
             break;
         case 'ArrowLeft':
-
             keysPressed.left = false;
             break;
         case 'ArrowRight':
-
             keysPressed.right = false;
             break;
     }
@@ -421,8 +389,5 @@ function stopMovement() {
         keysPressed.backward =
         keysPressed.left =
         keysPressed.right =
-        false;
+            false;
 }
-
-
-
