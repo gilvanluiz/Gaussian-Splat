@@ -158,7 +158,7 @@ viewer
     .addSplatScene(rooms[0], {
         splatAlphaRemovalThreshold: 20,
         showLoadingUI: true,
-        position: [0, 0, 0],
+        position: [-1.5, 0, 0],
         rotation: [0, 0.08, -0.01, 0.65],
         scale: [1.5, 1.5, 1.5],
         progressiveLoad: true,
